@@ -11,7 +11,7 @@
 
     <title>
         
-        Hexo 安裝與使用 - Elissa 前端雜記
+        Visual Studio Code 常用套件與設定 - Elissa 前端雜記
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安裝"><span class="toc-text">安裝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配置"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新增文章"><span class="toc-text">新增文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用語法"><span class="toc-text">常用語法</span></a></li></ol>
+    
 </div>
     
 </div>
@@ -120,15 +120,15 @@
 
 <div class="post-container">
     <div class="post-title">
-        Hexo 安裝與使用
+        Visual Studio Code 常用套件與設定
     </div>
 
     <div class="post-meta">
-        <span class="attr">發布於：<span>2019-07-13 20:22:43</span></span>
+        <span class="attr">發布於：<span>2019-07-13 17:07:03</span></span>
         
         <span class="attr">標籤：/
         
-        <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+        <a class="tag" href="/tags/#Visual Studio Code" title="Visual Studio Code">Visual Studio Code</a>
         <span>/</span>
         
         
@@ -138,17 +138,8 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>建立一個專案資料夾，並打開終端機</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Hexo</span></span><br><span class="line">npm <span class="keyword">install</span> -g hexo-cli</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 Hexo</span></span><br><span class="line">hexo init &lt;fileName&gt;</span><br><span class="line"></span><br><span class="line">cd &lt;fileName&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安裝 Hexo Git (部署文章用)</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
-<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><p>開啟 <code>_config.yml</code>，新增以下關於 github 帳號的設定：</p>
-<p><strong>url</strong>: https://[github帳號].github.io<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## <span class="keyword">If</span> your site <span class="keyword">is</span> put <span class="keyword">in</span> a subdirectory, <span class="keyword">set</span> url <span class="keyword">as</span> <span class="string">'http://yoursite.com/child'</span> <span class="keyword">and</span> root <span class="keyword">as</span> <span class="string">'/child/'</span></span><br><span class="line">url: http:<span class="comment">//amy123.com</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>repository</strong>: <a href="http://github.com/[你的github帳號]/[你的github帳號].github.io.git" target="_blank" rel="noopener">http://github.com/[你的github帳號]/[你的github帳號].github.io.git</a><br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">    <span class="attribute">type</span>: git</span><br><span class="line">    <span class="attribute">repository</span>: <span class="attribute">http</span>:<span class="comment">//github.com/amy123/amy123.github.io.git</span></span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure></p>
-<h2 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h2><p><code>hexo new &lt;文章名稱&gt;</code><br>命名規則為 kebab Case，單字與單字間使用連接符號<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> hexo-<span class="built_in">document</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="常用語法"><a href="#常用語法" class="headerlink" title="常用語法"></a>常用語法</h2><p>本機預覽結果<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure></p>
-<p>產生靜態頁面<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br></pre></td></tr></table></figure></p>
-<p>佈署文章至 github<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure></p>
-<p><a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">官方說明頁</a></p>
-
+        <p>Atom One Dark Theme：Atom 主題<br>Prettier-Code formtter：程式碼對齊<br>git-autoconfig：可綁定多組帳號，打開專案時會詢問要以哪個身分進行<br>gitflow: gitflow 配置<br>gitignore:<br>indent-rainbow：程式碼排列顏色提示<br>Live Sass Compiler：Live sass/scss 樣式編譯<br>Live Server：Live 編譯<br>Path Intellisense：路徑<br>ESLint<br>Vetur<br>vscode-icons<br>Chinese (Traditional) Language Pack for Visual Studio Code</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"editor.fontSize"</span>: <span class="number">16</span>,</span><br><span class="line">	<span class="attr">"typescript.locale"</span>: <span class="string">"zh-TW"</span>,</span><br><span class="line">	<span class="attr">"workbench.colorTheme"</span>: <span class="string">"Atom One Dark"</span>,</span><br><span class="line">	<span class="attr">"workbench.iconTheme"</span>: <span class="string">"vscode-icons"</span>,</span><br><span class="line">	<span class="attr">"terminal.integrated.shell.windows"</span>: <span class="string">"C:\\Program Files\\Git\\bin\\bash.exe"</span>,</span><br><span class="line">	<span class="attr">"window.zoomLevel"</span>: <span class="number">1</span>,</span><br><span class="line">	<span class="attr">"editor.tabSize"</span>: <span class="number">4</span>,</span><br><span class="line">	<span class="attr">"emmet.triggerExpansionOnTab"</span>: <span class="literal">true</span>,</span><br><span class="line">	<span class="attr">"git-autoconfig.configList"</span>: [</span><br><span class="line">		&#123;</span><br><span class="line">		<span class="attr">"user.name"</span>: <span class="string">"elissa"</span>,</span><br><span class="line">		<span class="attr">"user.email"</span>: <span class="string">"syue1018@hotmail.com"</span></span><br><span class="line">		&#125;</span><br><span class="line">	],</span><br><span class="line">	<span class="attr">"editor.formatOnSave"</span>: <span class="literal">false</span>,</span><br><span class="line">	<span class="attr">"[javascript]"</span>: &#123;</span><br><span class="line">		<span class="attr">"editor.formatOnSave"</span>: <span class="literal">true</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
         <br />
         <div id="comment-container">

@@ -11,7 +11,7 @@
 
     <title>
         
-        Hexo 安裝與使用 - Elissa 前端雜記
+        JSX - Elissa 前端雜記
         
     </title>
 
@@ -89,7 +89,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安裝"><span class="toc-text">安裝</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配置"><span class="toc-text">修改配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新增文章"><span class="toc-text">新增文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用語法"><span class="toc-text">常用語法</span></a></li></ol>
+    
 </div>
     
 </div>
@@ -120,15 +120,15 @@
 
 <div class="post-container">
     <div class="post-title">
-        Hexo 安裝與使用
+        JSX
     </div>
 
     <div class="post-meta">
-        <span class="attr">發布於：<span>2019-07-13 20:22:43</span></span>
+        <span class="attr">發布於：<span>2019-07-14 12:24:35</span></span>
         
         <span class="attr">標籤：/
         
-        <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+        <a class="tag" href="/tags/#React" title="React">React</a>
         <span>/</span>
         
         
@@ -138,16 +138,12 @@
 </span>
     </div>
     <div class="post-content no-indent">
-        <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>建立一個專案資料夾，並打開終端機</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 Hexo</span></span><br><span class="line">npm <span class="keyword">install</span> -g hexo-cli</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化 Hexo</span></span><br><span class="line">hexo init &lt;fileName&gt;</span><br><span class="line"></span><br><span class="line">cd &lt;fileName&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安裝 Hexo Git (部署文章用)</span></span><br><span class="line">npm <span class="keyword">install</span> hexo-deployer-git <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
-<h2 id="修改配置"><a href="#修改配置" class="headerlink" title="修改配置"></a>修改配置</h2><p>開啟 <code>_config.yml</code>，新增以下關於 github 帳號的設定：</p>
-<p><strong>url</strong>: https://[github帳號].github.io<br><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># URL</span><br><span class="line">## <span class="keyword">If</span> your site <span class="keyword">is</span> put <span class="keyword">in</span> a subdirectory, <span class="keyword">set</span> url <span class="keyword">as</span> <span class="string">'http://yoursite.com/child'</span> <span class="keyword">and</span> root <span class="keyword">as</span> <span class="string">'/child/'</span></span><br><span class="line">url: http:<span class="comment">//amy123.com</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>repository</strong>: <a href="http://github.com/[你的github帳號]/[你的github帳號].github.io.git" target="_blank" rel="noopener">http://github.com/[你的github帳號]/[你的github帳號].github.io.git</a><br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:</span><br><span class="line">    <span class="attribute">type</span>: git</span><br><span class="line">    <span class="attribute">repository</span>: <span class="attribute">http</span>:<span class="comment">//github.com/amy123/amy123.github.io.git</span></span><br><span class="line">    <span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure></p>
-<h2 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h2><p><code>hexo new &lt;文章名稱&gt;</code><br>命名規則為 kebab Case，單字與單字間使用連接符號<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> hexo-<span class="built_in">document</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="常用語法"><a href="#常用語法" class="headerlink" title="常用語法"></a>常用語法</h2><p>本機預覽結果<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure></p>
-<p>產生靜態頁面<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br></pre></td></tr></table></figure></p>
-<p>佈署文章至 github<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo d</span></span><br></pre></td></tr></table></figure></p>
-<p><a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">官方說明頁</a></p>
+        <p>JSX 是 react 發明，要讓 react 在 js 程式裡定義類似於 HTML 的模板，有以下特點：</p>
+<p>1.一定要有 close tag<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一般在HTML這樣是不會報錯的，JSX 物件內會報錯</span></span><br><span class="line">&lt;input type=<span class="string">"text"</span>&gt;</span><br><span class="line"><span class="comment">// JSX 內正確寫法</span></span><br><span class="line">&lt;input type=<span class="string">"text"</span> /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>2.所有 tag 都可以 self close<br>JSX 允許沒有包任何元素的 tag 縮寫成 self close<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div className=<span class="string">"wrap"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;div className=<span class="string">"wrap"</span> /&gt;</span><br><span class="line"></span><br><span class="line">&lt;App&gt;<span class="xml"><span class="tag">&lt;/<span class="name">App</span>&gt;</span></span></span><br><span class="line">&lt;App /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3.className/htmlFor<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div className=<span class="string">"App"</span>&gt;</span><br><span class="line">    &lt;label htmlFor=<span class="string">"check"</span>&gt;check&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">    &lt;input type="checkbox" id="check" /</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>4.事件以駝峰式命名<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onClick=&#123;onSubmit&#125;&gt;送出&lt;<span class="regexp">/button&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>5.在 HTML裡面給字串；JSX 物件給花括號<code>{}</code>，<code>{}</code>可以包住一個值或是表達式<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// HTML</span></span><br><span class="line">&lt;button onclick=<span class="string">"onSubmit"</span>&gt;送出&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ JSX</span></span><br><span class="line"><span class="regexp">&lt;button onClick=&#123;onSubmit&#125;&gt;&#123;text&#125;&lt;/</span>button&gt;</span><br></pre></td></tr></table></figure></p>
 
         
         <br />

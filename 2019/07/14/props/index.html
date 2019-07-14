@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="那些年我踩過的坑 - 前端雜記">
+    <meta name="keyword" content="javascript, css, html, f2e, vue, react">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        props：上層傳下來的屬性 - Elissa 前端雜記
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 那些年我踩過的坑 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/easyicon.png" />
+        </div>
+        <div class="name">
+            <i>Elissa</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主頁</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>標籤</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archive">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存檔</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>關於</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>搜尋</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#入門"><span class="toc-text">入門</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#進階用法"><span class="toc-text">進階用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用-props-指定初始-state"><span class="toc-text">用 props 指定初始 state</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用-defaultProps-指定預設-props"><span class="toc-text">用 defaultProps 指定預設 props</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用-propTypes-檢查-props-型別"><span class="toc-text">用 propTypes 檢查 props 型別</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜尋</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> 那些年我踩過的坑 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        props：上層傳下來的屬性
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">發布於：<span>2019-07-14 16:34:27</span></span>
+        
+        <span class="attr">標籤：/
+        
+        <a class="tag" href="/tags/#React" title="React">React</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">訪問：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content no-indent">
+        <h2 id="入門"><a href="#入門" class="headerlink" title="入門"></a>入門</h2><p>上層傳下來的屬性</p>
+<p>將 text 屬性傳給 Item 組件。如果要傳入的值是字串以外(ex.數字)，要用花括弧包起來<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上層</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> Item <span class="keyword">from</span> <span class="string">"./Item"</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">List</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;Item text=<span class="string">"摩斯漢堡"</span> price=&#123;<span class="number">100</span>&#125; /&gt;</span><br><span class="line">                &lt;Item text=<span class="string">"麥當勞"</span> /&gt;</span><br><span class="line">                &lt;Item text=<span class="string">"肯德基"</span> /&gt;</span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">export default List;</span></span><br></pre></td></tr></table></figure></p>
+<p>利用 <code>this.props</code> 拿到上層組件傳進來的 text<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下層</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Item</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;this.props.text&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Item;</span><br></pre></td></tr></table></figure></p>
+<p>如果上層組件要傳給子組件的值夾在組件內，子組件可以用 <code>this.props.children</code> 取得值<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="keyword">import</span> Item <span class="keyword">from</span> <span class="string">"./Item"</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">List</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;Item&gt;摩斯漢堡&lt;<span class="regexp">/Item&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/u</span>l&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> List;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">"react"</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Item</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span>&#123;this.props.children&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Item;</span><br></pre></td></tr></table></figure>
+<h2 id="進階用法"><a href="#進階用法" class="headerlink" title="進階用法"></a>進階用法</h2><h3 id="用-props-指定初始-state"><a href="#用-props-指定初始-state" class="headerlink" title="用 props 指定初始 state"></a>用 props 指定初始 state</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上層</span></span><br><span class="line">&lt;Counter initCount=&#123;<span class="number">10</span>&#125; /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下層</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 來自上層 props 傳入的 state</span></span><br><span class="line">    <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            count: props.initCount</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    addCount = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;&#123;<span class="keyword">this</span>.state.count&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">                &lt;button onClick=&#123;this.addCount&#125;&gt;+1&lt;/</span>button&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default Counter;</span></span><br></pre></td></tr></table></figure>
+<h3 id="用-defaultProps-指定預設-props"><a href="#用-defaultProps-指定預設-props" class="headerlink" title="用 defaultProps 指定預設 props"></a>用 defaultProps 指定預設 props</h3><p>當子組件已經定義來自上層傳來的預設值時，而上層組件又忘了給初始值，這時子組件的 <code>props.initCount</code> 會是 undefined 而導致程式出錯</p>
+<p>為了避免這種錯誤，可以用 defaultProps 指定子組件的初始預設值，有兩種寫法，一個可以在組件內指定<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;Counter /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下層</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 在組件內當作 static</span></span><br><span class="line">    <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">        initCount: <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            count: props.initCount</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    addCount = <span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            count: <span class="keyword">this</span>.state.count + <span class="number">1</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">                &lt;h1&gt;&#123;<span class="keyword">this</span>.state.count&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">                &lt;button onClick=&#123;this.addCount&#125;&gt;+1&lt;/</span>button&gt;</span><br><span class="line">            &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">export default Counter;</span></span><br></pre></td></tr></table></figure></p>
+<p>或是在組件外<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Counter.defaultProps = &#123;</span><br><span class="line">    initCount: <span class="number">7</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="用-propTypes-檢查-props-型別"><a href="#用-propTypes-檢查-props-型別" class="headerlink" title="用 propTypes 檢查 props 型別"></a>用 propTypes 檢查 props 型別</h3><p>假設今天的上下層組件是由不同人分工完成，上層組件給了一個字串 10，在子組件當作上層給個是數字直接拿來做運算，會發生字串相加的問題<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字串 10</span></span><br><span class="line">&lt;Counter initCount=<span class="string">"10"</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 數字 10</span></span><br><span class="line">&lt;Counter initCount=&#123;<span class="number">10</span>&#125; /&gt;</span><br></pre></td></tr></table></figure></p>
+<p>這時可以在子組件用 propTypes 驗證上層傳來 props 的型別，有兩種寫法<br><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Counter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">        initCount: PropTypes.number</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Counter;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="comment">// 要再組件外</span></span><br><span class="line">Counter.propTypes = &#123;</span><br><span class="line">    initCount: PropTypes.number</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>當 props 傳來的屬性不匹配時，就會報錯</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/elissa1128">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <!-- <span>/</span> -->
+        
+    </p>
+    
+    <p>
+        <!-- <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span> -->
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+    <script>
+        /**
+         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+        */
+        if( '' || '')
+        var disqus_config = function () {
+            this.page.url = '';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = ''; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://elissa1128.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+
+
+
+</html>
